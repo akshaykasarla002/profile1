@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akshay Kasarla — SAP GTS (Global Trade Services) and SAP BTP portfolio: customs, trade compliance, preference calculation and SD / FI-CO / TM integration.">
+  <title>Akshay Kasarla | SAP GTS &amp; SAP BTP Portfolio</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #14213d;
+  --muted: #64748b;
+  --accent: #1769aa;
+  --forest: #0d3557;
+  --pale: #f2f7fb;
+  --line: #dce6ef;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); font-family: 'Source Sans 3', sans-serif; font-size: 17px; line-height: 1.65; }
+a { color: inherit; text-decoration: none; }
+.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+.narrow { width: min(820px, calc(100% - 40px)); }
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font: 700 1.5rem 'Source Serif 4', Georgia, serif; letter-spacing: -.5px; }
+.brand span { color: #55a6dc; }
+.hero h1 span { color: #55a6dc; font-style: normal; }
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: .92rem; font-weight: 600; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { padding: 9px 17px; border-radius: 4px; background: var(--accent); color: white !important; }
+.menu-toggle { display: none; border: 0; background: none; font-size: 1.6rem; }
+.hero { padding: 100px 0 88px; color: white; background: radial-gradient(circle at 85% 20%, #1d6595 0, transparent 30%), linear-gradient(120deg, #0b2037, #123e63); }
+.hero-grid { display: grid; grid-template-columns: 1.5fr .8fr; gap: 70px; align-items: center; }
+.eyebrow { color: #1769aa; font-size: .75rem; letter-spacing: 2px; font-weight: 700; }
+.hero .eyebrow { color: #9bd4f7; }
+.hero h1 { font: 700 clamp(3rem, 7vw, 5.3rem)/1.08 'Source Serif 4', Georgia, serif; letter-spacing: -.5px; margin: 18px 0 12px; }
+.hero h2 { font: 600 clamp(1.2rem, 2.6vw, 1.7rem) 'Source Serif 4', Georgia, serif; margin: 0 0 20px; }
+.hero-copy { max-width: 650px; color: #d5e5f1; font-size: 1.08rem; }
+.hero-actions, .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 18px; border-radius: 4px; font-weight: 700; font-size: .92rem; transition: transform .2s, background .2s; }
+.button:hover { transform: translateY(-2px); }
+.button.primary { color: white; background: var(--accent); }
+.hero .button.primary { background: #65b5e8; color: #08223a; }
+.button.secondary { border: 1px solid #b9cddd; color: inherit; }
+.availability { margin-top: 25px; color: #b9d5e8; font-size: .9rem; }
+.hero-card { padding: 30px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; background: rgba(255,255,255,.08); box-shadow: none; }
+.monogram { display: grid; place-items: center; width: 66px; height: 66px; border-radius: 6px; background: #d9efff; color: #0d3557; font: 700 1.5rem 'Source Serif 4', Georgia, serif; }
+.card-label { margin: 22px 0 5px; color: #9bd4f7; font-size: .7rem; letter-spacing: 2px; font-weight: 700; }
+.hero-card h3 { margin: 0; font: 700 1.3rem 'Source Serif 4', Georgia, serif; }
+.hero-card ul { padding-left: 19px; color: #d5e5f1; }
+.section { padding: 88px 0; }
+.section-alt { background: var(--pale); }
+.section-title { margin: 8px 0 18px; font: 700 clamp(2rem, 4vw, 2.8rem)/1.2 'Source Serif 4', Georgia, serif; letter-spacing: -.6px; }
+.section p { color: #536579; }
+.lead { color: #243b53 !important; font-size: 1.2rem; font-weight: 500; }
+.note { padding: 14px 17px; border-left: 3px solid #55a6dc; background: #f3f8fc; font-size: .9rem; }
+.section-intro { margin-top: -8px; margin-bottom: 30px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+.topic-card { padding: 25px; background: white; border: 1px solid var(--line); border-radius: 6px; }
+.topic-number { color: #1769aa; font: 700 .85rem 'Source Serif 4', Georgia, serif; }
+.topic-card h3 { margin: 12px 0 8px; font: 700 1.15rem 'Source Serif 4', Georgia, serif; }
+.topic-card p { margin: 0 0 18px; font-size: .94rem; }
+.tag { display: inline-block; padding: 5px 9px; color: #1769aa; background: #eaf5fc; border-radius: 5px; font-size: .75rem; font-weight: 700; }
+.process { max-width: 850px; margin-top: 18px; }
+.process-tools { display: flex; justify-content: flex-end; max-width: 850px; margin-top: 26px; }
+.link-button { border: 0; background: none; padding: 4px 0; color: var(--accent); font: 700 .88rem 'Source Sans 3', sans-serif; cursor: pointer; }
+.link-button:hover { text-decoration: underline; }
+.process-step { border-bottom: 1px solid var(--line); }
+.process-step summary { display: grid; grid-template-columns: 48px 1fr 24px; gap: 18px; align-items: start; padding: 18px 0; cursor: pointer; list-style: none; }
+.process-step summary::-webkit-details-marker { display: none; }
+.process-step summary::after { content: "+"; align-self: center; justify-self: end; color: var(--accent); font: 700 1.4rem/1 'Source Serif 4', Georgia, serif; }
+.process-step[open] summary::after { content: "\2212"; }
+.process-step summary > span { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #eaf5fc; color: var(--accent); font-weight: 700; }
+.process-step h3 { margin: 0 0 4px; font: 700 1.08rem 'Source Serif 4', Georgia, serif; }
+.process-step summary p { margin: 0; }
+.step-body { margin: 0 0 22px 66px; padding: 16px 20px; border-left: 3px solid #55a6dc; background: #f6fafd; border-radius: 0 8px 8px 0; }
+.step-body dl { margin: 0; display: grid; gap: 10px; }
+.step-body dt { color: var(--forest); font: 700 .82rem 'Source Serif 4', Georgia, serif; }
+.step-body dd { margin: 2px 0 0; color: #3f5367; font-size: .94rem; }
+.education-item { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.education-item h3 { margin: 5px 0; font: 700 1.15rem 'Source Serif 4', Georgia, serif; }
+.education-item p { margin: 0; }
+.date { color: var(--accent); font-size: .82rem; font-weight: 700; }
+.contact-section { background: #102e49; color: white; }
+.contact-section .section-title, .contact-section p { color: white; }
+.contact-section p:not(.eyebrow) { color: #c6d8e6; }
+.contact-section .button.secondary { color: white; border-color: #7e9bb2; }
+.small-print { margin-top: 22px; font-size: .8rem; }
+.footer { padding: 20px 0; background: #091d30; color: #b8cad8; font-size: .83rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; }
+@media (max-width: 800px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+  .hero { padding: 72px 0; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { gap: 16px; }
+}
+@media (max-width: 600px) {
+  .menu-toggle { display: block; color: var(--ink); }
+  .nav-links { display: none; position: absolute; top: 71px; left: 0; right: 0; padding: 18px 22px; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; }
+  .nav-links.open { display: flex; }
+  .cards { grid-template-columns: 1fr; }
+  .section { padding: 65px 0; }
+  .hero h1 { letter-spacing: -.3px; }
+  .footer-inner { flex-direction: column; }
+}
+
+/* Topic cards: clickable */
+.topic-card { display: flex; flex-direction: column; cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+.topic-card:hover { border-color: #8fc3e6; box-shadow: 0 10px 28px rgba(20,33,61,.08); }
+.topic-card p { flex: 1; }
+.card-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.topic-open { border: 0; background: none; padding: 6px 0; color: var(--accent); font: 700 .86rem 'Source Sans 3', sans-serif; cursor: pointer; }
+.topic-open:hover { text-decoration: underline; }
+
+/* Topic dialog */
+body:has(dialog[open]) { overflow: hidden; }
+.topic-dialog { width: min(720px, calc(100% - 32px)); max-height: min(88vh, 860px); padding: 0; border: 0; border-radius: 8px; color: var(--ink); background: white; box-shadow: 0 30px 80px rgba(9,29,48,.35); }
+.topic-dialog[open] { display: flex; flex-direction: column; animation: dialog-in .22s ease-out; }
+.topic-dialog::backdrop { background: rgba(9,29,48,.62); backdrop-filter: blur(3px); }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 24px 28px 16px; border-bottom: 1px solid var(--line); }
+.dialog-head h3 { margin: 6px 0 0; font: 700 1.6rem/1.2 'Source Serif 4', Georgia, serif; letter-spacing: -.5px; }
+.dialog-close { flex: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: white; color: var(--ink); font-size: 1.1rem; cursor: pointer; }
+.dialog-close:hover { background: var(--pale); }
+.dialog-body { flex: 1; overflow-y: auto; padding: 4px 28px 22px; }
+.dialog-body p { color: #3f5367; margin: 14px 0 0; }
+.dialog-body h4 { margin: 24px 0 8px; font: 700 1rem 'Source Serif 4', Georgia, serif; color: var(--forest); }
+.dialog-body ul { margin: 0; padding-left: 20px; color: #3f5367; }
+.dialog-body li { margin-bottom: 7px; }
+.terms { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; }
+.terms dt { font-weight: 700; color: var(--ink); }
+.terms dd { margin: 0; color: #3f5367; }
+.example { margin-top: 22px; padding: 14px 17px; border-left: 3px solid #55a6dc; background: #f3f8fc; border-radius: 0 8px 8px 0; color: #3f5367; font-size: .94rem; }
+.dialog-foot { display: flex; justify-content: space-between; gap: 12px; padding: 14px 28px; border-top: 1px solid var(--line); background: var(--pale); border-radius: 0 0 14px 14px; }
+.dialog-foot button { border: 1px solid #b9cddd; border-radius: 4px; background: white; padding: 9px 14px; color: var(--ink); font: 600 .88rem 'Source Sans 3', sans-serif; cursor: pointer; }
+.dialog-foot button:hover { border-color: var(--accent); color: var(--accent); }
+
+:focus-visible { outline: 3px solid #9bd4f7; outline-offset: 2px; }
+
+@media (max-width: 600px) {
+  .step-body { margin-left: 0; }
+  .process-step summary { grid-template-columns: 42px 1fr 20px; gap: 14px; }
+  .dialog-head, .dialog-body, .dialog-foot { padding-left: 20px; padding-right: 20px; }
+  .terms { grid-template-columns: 1fr; gap: 2px; }
+  .terms dd { margin-bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .topic-dialog[open] { animation: none; }
+  .button, .topic-card { transition: none; }
+}
+
+.hero-focus { margin: 14px 0 0; color: #b9d5e8; font-size: .95rem; }
+.inline-topic { border: 0; background: none; padding: 0; color: #9bd4f7; font-family: 'Source Sans 3', sans-serif; font-size: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.inline-topic:hover { color: white; }
+@media (min-width: 801px) { .topic-card:last-child:nth-child(3n+1) { grid-column: 1 / -1; } }
+
+/* Resume */
+.inline-link { color: #9bd4f7; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.resume-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start; margin-top: 26px; }
+.resume-facts { margin: 0; }
+.resume-facts > div { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.resume-facts > div:first-child { padding-top: 0; }
+.resume-facts dt { color: var(--forest); font: 700 .92rem 'Source Serif 4', Georgia, serif; }
+.resume-facts dd { margin: 0; color: #3f5367; font-size: .95rem; }
+.resume-card { position: sticky; top: 96px; padding: 28px; background: var(--pale); border: 1px solid var(--line); border-radius: 8px; }
+.resume-card h3 { margin: 16px 0 4px; font: 700 1.2rem 'Source Serif 4', Georgia, serif; }
+.resume-card p { margin: 0 0 20px; font-size: .94rem; }
+.resume-card .button { display: flex; width: 100%; }
+.resume-card .button + .button { margin-top: 10px; }
+.button.outline { border: 1px solid var(--accent); color: var(--accent); }
+.pdf-badge { display: grid; place-items: center; width: 54px; height: 66px; border-radius: 8px; background: var(--forest); color: white; font: 700 .85rem 'Source Serif 4', Georgia, serif; letter-spacing: 1px; }
+@media (max-width: 800px) {
+  .nav-links { font-size: .82rem; gap: 12px; }
+  .resume-grid { grid-template-columns: 1fr; gap: 32px; }
+  .resume-card { position: static; }
+}
+@media (max-width: 600px) {
+  .resume-facts > div { grid-template-columns: 1fr; gap: 2px; }
+}
+
+  
+/* Profile (role fit) */
+.fit-list { margin-top: 30px; border-top: 1px solid var(--line); }
+.fit-row { display: grid; grid-template-columns: 260px 1fr; gap: 12px 36px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.fit-row h3 { margin: 0 0 8px; font: 700 1.08rem/1.3 'Source Serif 4', Georgia, serif; }
+.fit-row p { margin: 0 0 8px; font-size: .95rem; }
+.fit-row .link-button { padding: 0; }
+.chip { display: inline-block; padding: 4px 9px; border-radius: 3px; font-size: .72rem; font-weight: 700; letter-spacing: .3px; background: var(--pale); color: var(--forest); border: 1px solid var(--line); }
+.chip.core { background: var(--forest); color: #f2f7fb; border-color: var(--forest); }
+.chip.dev { background: #eaf5fc; color: var(--accent); border-color: #cfe3f2; }
+@media (max-width: 700px) { .fit-row { grid-template-columns: 1fr; } }
+
+/* Certifications */
+.cert-group { margin: 34px 0 0; color: var(--accent); font-size: .75rem; letter-spacing: 2px; font-weight: 700; }
+.cert-list { margin-top: 10px; border-top: 1px solid var(--line); }
+.cert-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.cert-row h3 { margin: 0; font: 700 1.08rem/1.3 'Source Serif 4', Georgia, serif; }
+.cert-row .issuer { margin: 3px 0 0; font-size: .88rem; }
+.cert-view { padding: 8px 14px; border: 1px solid #b9cddd; border-radius: 4px; font-size: .85rem; font-weight: 600; white-space: nowrap; transition: border-color .2s, color .2s; }
+.cert-view:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 640px) { .cert-row { grid-template-columns: 1fr; gap: 10px; justify-items: start; } }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">AK<span>.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#expertise">GTS Expertise</a>
+        <a href="#case-study">Case Study</a>
+        <a href="#profile">Profile</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">SAP GLOBAL TRADE SERVICES · SAP BTP</p>
+          <h1>Akshay <span>Kasarla</span></h1>
+          <h2>SAP GTS Functional Consultant · in training</h2>
+          <p class="hero-copy">Master’s student in SAP Engineering &amp; Analytics, building functional knowledge of trade compliance, customs and preference processes, and of how SAP GTS integrates with SD, FI/CO and TM. German speaker (B1).</p>
+          <p class="hero-focus">I also work with <button class="inline-topic" type="button" data-open="btp">SAP BTP</button> (Business Technology Platform) for integration and extensions. See my <a class="inline-link" href="#certifications">certifications</a> and <a class="inline-link" href="#resume">resume</a>.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#expertise">Explore GTS expertise</a>
+            <a class="button secondary" href="assets/Akshay_Kasarla_Resume.pdf" data-resume="download" download>Download Resume</a>
+            <a class="button secondary" href="#contact">Connect with me</a>
+          </div>
+          <p class="availability">Open to Working Student (Werkstudent) and internship opportunities in SAP GTS in Germany.</p>
+        </div>
+        <aside class="hero-card">
+          <div class="monogram">AK</div>
+          <p class="card-label">CAREER FOCUS</p>
+          <h3>SAP GTS Functional</h3>
+          <ul>
+            <li>Compliance &amp; Customs Management</li>
+            <li>Legal Control</li>
+            <li>Preference Calculation (IBPP)</li>
+            <li>Integration with SD, FI/CO and TM</li>
+            <li>SAP BTP</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container narrow">
+        <p class="eyebrow">01 / ABOUT</p>
+        <h2 class="section-title">Connecting business processes with SAP GTS</h2>
+        <p class="lead">I am pursuing a Master’s degree in SAP Engineering &amp; Analytics at Hochschule Fresenius University of Applied Sciences in Heidelberg, Germany.</p>
+        <p>My professional focus is SAP Global Trade Services (GTS), with an interest in helping organizations manage international trade requirements through compliance checks, customs processing and integration with enterprise systems. I am strengthening my functional understanding through structured learning and practical case studies.</p>
+        <p class="note">This portfolio presents my knowledge areas, practice scenarios and certifications. Anything I describe as a practice scenario was not a live customer implementation.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="expertise">
+      <div class="container">
+        <p class="eyebrow">02 / CORE KNOWLEDGE AREAS</p>
+        <h2 class="section-title">SAP GTS functional areas</h2>
+        <p class="section-intro">Key topics I am studying and developing practical understanding of. Select a card to read the details.</p>
+        <div class="cards">
+          <article class="topic-card" data-topic="compliance">
+            <span class="topic-number">01</span>
+            <h3>Compliance Management</h3>
+            <p>Sanctioned Party List (SPL) screening, embargo checks, partner screening and compliance blocks.</p>
+            <div class="card-foot"><span class="tag">Trade compliance</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+          <article class="topic-card" data-topic="legal">
+            <span class="topic-number">02</span>
+            <h3>Legal Control</h3>
+            <p>Export control concepts, product classification, license determination and license checks.</p>
+            <div class="card-foot"><span class="tag">Export control</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+          <article class="topic-card" data-topic="customs">
+            <span class="topic-number">03</span>
+            <h3>Customs Management</h3>
+            <p>Import and export processes, customs declarations, document flow and customs status handling.</p>
+            <div class="card-foot"><span class="tag">Customs processes</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+          <article class="topic-card" data-topic="preference">
+            <span class="topic-number">04</span>
+            <h3>Preference Calculation (IBPP)</h3>
+            <p>Free Trade Agreements (FTA), preferential origin, supplier declarations and preference determination.</p>
+            <div class="card-foot"><span class="tag">FTA &amp; origin</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+          <article class="topic-card" data-topic="integration">
+            <span class="topic-number">05</span>
+            <h3>System Integration</h3>
+            <p>Master and transaction data exchange between SAP ERP / S/4HANA (SD, FI/CO), SAP TM and SAP GTS.</p>
+            <div class="card-foot"><span class="tag">SD · FI/CO · TM</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+          <article class="topic-card" data-topic="technical">
+            <span class="topic-number">06</span>
+            <h3>Technical Foundations</h3>
+            <p>Developing familiarity with SAP architecture, ABAP fundamentals, debugging concepts and testing.</p>
+            <div class="card-foot"><span class="tag">Technical learning</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+          <article class="topic-card" data-topic="btp">
+            <span class="topic-number">07</span>
+            <h3>SAP Business Technology Platform</h3>
+            <p>Learning how SAP BTP connects systems, hosts extensions and supports data and analytics around SAP GTS and S/4HANA.</p>
+            <div class="card-foot"><span class="tag">Cloud &amp; integration</span><button class="topic-open" type="button" aria-haspopup="dialog">Read details</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="case-study">
+      <div class="container">
+        <p class="eyebrow">03 / PRACTICE CASE STUDY</p>
+        <h2 class="section-title">Illustrative export compliance process</h2>
+        <p class="section-intro">Scenario: a company in Germany prepares to export machinery to a customer in India. This is a learning scenario, not a claim of a live implementation. Select a step to see what happens in it.</p>
+        <div class="process-tools"><button class="link-button" type="button" id="toggleSteps" data-open="false">Expand all steps</button></div>
+        <div class="process">
+          <details class="process-step" open>
+            <summary><span>01</span><div><h3>Sales document created</h3><p>An export-relevant sales transaction is created in the source ERP system.</p></div></summary>
+            <div class="step-body"><dl>
+              <div><dt>What happens</dt><dd>A sales order for the machinery is entered in SAP SD with the sold-to and ship-to parties, material, quantity, value and Incoterms.</dd></div>
+              <div><dt>Data that matters later</dt><dd>Partner names and addresses, the destination country, the commodity code and the country of origin of the product. Poor data here causes false blocks later.</dd></div>
+              <div><dt>Outcome</dt><dd>The order is saved and the delivery can be planned, but it is not yet cleared for shipping.</dd></div>
+            </dl></div>
+          </details>
+          <details class="process-step">
+            <summary><span>02</span><div><h3>Data transferred to GTS</h3><p>Relevant business partner, product and transaction data is transferred for checks.</p></div></summary>
+            <div class="step-body"><dl>
+              <div><dt>What happens</dt><dd>The ERP system sends the order or delivery, together with the master data it depends on, to SAP GTS through the integration interface.</dd></div>
+              <div><dt>In SAP GTS</dt><dd>GTS creates its own trade document for the transaction and starts the compliance, legal control and customs checks that are configured.</dd></div>
+              <div><dt>Outcome</dt><dd>The transaction is waiting for check results. Depending on the setup, the ERP system holds the delivery until GTS answers.</dd></div>
+            </dl></div>
+          </details>
+          <details class="process-step">
+            <summary><span>03</span><div><h3>Compliance screening</h3><p>Applicable SPL and embargo checks are performed based on configured rules and data.</p></div></summary>
+            <div class="step-body"><dl>
+              <div><dt>What happens</dt><dd>The customer, ship-to party and other partners are screened against sanctioned party lists, and the destination is checked against embargo rules.</dd></div>
+              <div><dt>In SAP GTS</dt><dd>A name that is similar to a listed party produces a hit. The document is blocked and appears in the compliance officer’s worklist.</dd></div>
+              <div><dt>Outcome</dt><dd>No hit: the document passes. Hit: the officer reviews it, decides whether it is a false positive, and releases or rejects it. The decision is logged.</dd></div>
+            </dl></div>
+          </details>
+          <details class="process-step">
+            <summary><span>04</span><div><h3>Legal control assessment</h3><p>Export-control requirements and any required license are evaluated.</p></div></summary>
+            <div class="step-body"><dl>
+              <div><dt>What happens</dt><dd>The machinery is checked against its classification, for example whether it falls under a dual-use control list, and the destination and partners are taken into account.</dd></div>
+              <div><dt>In SAP GTS</dt><dd>License determination decides whether a license is needed. If so, the license check looks for a valid license with enough remaining value or quantity.</dd></div>
+              <div><dt>Outcome</dt><dd>Most machinery needs no license and passes. If a license is required but missing or expired, the document stays blocked until one is assigned.</dd></div>
+            </dl></div>
+          </details>
+          <details class="process-step">
+            <summary><span>05</span><div><h3>Customs processing</h3><p>Relevant export declaration information is prepared and processed with the customs system.</p></div></summary>
+            <div class="step-body"><dl>
+              <div><dt>What happens</dt><dd>GTS builds the export declaration from the delivery data: commodity code, value, weight, Incoterms and the parties involved.</dd></div>
+              <div><dt>In SAP GTS</dt><dd>The declaration is sent electronically to the national customs system, for example ATLAS in Germany, and customs answers with status messages.</dd></div>
+              <div><dt>Outcome</dt><dd>Customs releases the export and returns a reference number (MRN) and an export accompanying document that travels with the goods.</dd></div>
+            </dl></div>
+          </details>
+          <details class="process-step">
+            <summary><span>06</span><div><h3>Release and follow-up</h3><p>The transaction proceeds when applicable compliance and customs requirements are satisfied.</p></div></summary>
+            <div class="step-body"><dl>
+              <div><dt>What happens</dt><dd>GTS sends the overall status back to the ERP system, which can now release the delivery and post the goods issue.</dd></div>
+              <div><dt>Follow-up</dt><dd>When the goods leave the customs territory, an exit confirmation is received and the customs status is updated. Documents are kept for audits and reporting.</dd></div>
+              <div><dt>Outcome</dt><dd>The shipment goes out with a complete, traceable compliance and customs record.</dd></div>
+            </dl></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section section-alt" id="profile">
+      <div class="container narrow">
+        <p class="eyebrow">04 / PROFILE</p>
+        <h2 class="section-title">What I bring to an SAP GTS team</h2>
+        <p class="section-intro">The areas below are the ones SAP GTS roles ask for most. The label on each shows how I would describe my own level.</p>
+        <div class="fit-list">
+          <div class="fit-row">
+            <div><h3>GTS design, configuration and testing</h3><span class="chip dev">Developing</span></div>
+            <div><p>Working through GTS design and configuration topics with practice scenarios: how checks are set up, how documents are blocked and released, and how a change is tested end to end. Testing means writing test cases, running integration tests across ERP and GTS, logging defects and retesting.</p><button class="link-button" type="button" data-open="technical">Read details</button></div>
+          </div>
+          <div class="fit-row">
+            <div><h3>Integration with SAP SD and FI/CO</h3><span class="chip core">Core focus</span></div>
+            <div><p>How sales orders, deliveries and billing documents from SD, and the related FI/CO postings, are passed to GTS, checked and returned to the ERP system. My M.Sc. coursework covers FI and CO process and master data mapping.</p><button class="link-button" type="button" data-open="integration">Read details</button></div>
+          </div>
+          <div class="fit-row">
+            <div><h3>Customs and compliance with SAP TM / GTS</h3><span class="chip core">Core focus</span></div>
+            <div><p>Sanctioned party screening, embargo and license checks, and customs declarations. In a transport landscape, SAP TM can pass shipment documents to GTS so the same checks cover freight.</p><button class="link-button" type="button" data-open="customs">Read details</button></div>
+          </div>
+          <div class="fit-row">
+            <div><h3>Preference calculation (IBPP)</h3><span class="chip core">Core focus</span></div>
+            <div><p>Working through a finished product's bill of materials with supplier declarations to decide whether it qualifies for the reduced duty under a free trade agreement.</p><button class="link-button" type="button" data-open="preference">Read details</button></div>
+          </div>
+          <div class="fit-row">
+            <div><h3>Manufacturing business processes</h3><span class="chip">Understanding</span></div>
+            <div><p>From procurement of parts and bills of materials through production, delivery and export. The case study above follows a machinery export for this reason.</p></div>
+          </div>
+          <div class="fit-row">
+            <div><h3>Onsite and offshore teamwork</h3><span class="chip">Working strength</span></div>
+            <div><p>Cross-functional Agile work with senior analysts during my internships at Data Minds Analytics. I have studied and worked in both India and Germany, so I am comfortable communicating across locations and time zones.</p></div>
+          </div>
+          <div class="fit-row">
+            <div><h3>German speaker</h3><span class="chip">B1</span></div>
+            <div><p>German at B1 level alongside fluent English, with language certificates listed below. I am continuing to improve toward professional working proficiency.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container narrow">
+        <p class="eyebrow">05 / EDUCATION</p>
+        <h2 class="section-title">Academic background</h2>
+        <div class="education-item">
+          <span class="date">04/2026 – Present</span>
+          <h3>Master’s in SAP Engineering &amp; Analytics</h3>
+          <p>Hochschule Fresenius University of Applied Sciences · Heidelberg, Germany</p>
+        </div>
+        <div class="education-item">
+          <span class="date">08/2020 – 05/2023</span>
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p>India</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section section-alt" id="certifications">
+      <div class="container narrow">
+        <p class="eyebrow">06 / CERTIFICATIONS</p>
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-intro">Internship, training and language certificates. Each one opens as a PDF.</p>
+
+        <p class="cert-group">INTERNSHIPS AND TRAINING</p>
+        <div class="cert-list">
+          <div class="cert-row">
+            <div><h3>Full Stack Java Developer</h3><p class="issuer">TalentSprint</p></div>
+            <span></span>
+            <a class="cert-view" href="assets/certificates/full-stack-java-developer.pdf" target="_blank" rel="noopener">View certificate</a>
+          </div>
+          <div class="cert-row">
+            <div><h3>Analyst Intern Certification</h3><p class="issuer">Data Minds Analytics Pvt Ltd</p></div>
+            <span></span>
+            <a class="cert-view" href="assets/certificates/analyst-intern-certification.pdf" target="_blank" rel="noopener">View certificate</a>
+          </div>
+          <div class="cert-row">
+            <div><h3>Software Development Intern Certification</h3><p class="issuer">Data Minds Analytics Pvt Ltd</p></div>
+            <span></span>
+            <a class="cert-view" href="assets/certificates/software-development-intern-certification.pdf" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </div>
+
+        <p class="cert-group">LANGUAGES</p>
+        <div class="cert-list">
+          <div class="cert-row">
+            <div><h3>German Language Certificate A1</h3><p class="issuer">Goethe-Institut / language school</p></div>
+            <span></span>
+            <a class="cert-view" href="assets/certificates/german-a1.pdf" target="_blank" rel="noopener">View certificate</a>
+          </div>
+          <div class="cert-row">
+            <div><h3>German Language Certificate B1</h3><p class="issuer">Goethe-Institut / language school</p></div>
+            <span></span>
+            <a class="cert-view" href="assets/certificates/german-a2.pdf" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resume">
+      <div class="container">
+        <p class="eyebrow">07 / RESUME</p>
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-grid">
+          <dl class="resume-facts">
+            <div><dt>Focus</dt><dd>SAP GTS: compliance, legal control, customs and preference calculation (IBPP), integration with SD, FI/CO and TM, plus SAP BTP.</dd></div>
+            <div><dt>Education</dt><dd>M.Sc. SAP Engineering &amp; Analytics, Hochschule Fresenius Heidelberg (since 04/2026). B.Sc. Computer Science (2020 – 2023).</dd></div>
+            <div><dt>Experience</dt><dd>Analyst Intern, Fraud Detection, and Software Development Intern at Data Minds Analytics (2024 – 2025): SQL and Python data validation, reporting and Agile teamwork.</dd></div>
+            <div><dt>Skills</dt><dd>SQL, Python, Excel, Git, Power BI and Tableau (basic), SAP S/4HANA process and master data concepts.</dd></div>
+            <div><dt>Languages</dt><dd>English (fluent), German (B1), Telugu (native).</dd></div>
+            <div><dt>Certifications</dt><dd>Internship, training and German language certificates (see above).</dd></div>
+            <div><dt>Availability</dt><dd>Immediately, part-time (15–18 hours per week), based in Leimen/Heidelberg, able to commute to Mannheim.</dd></div>
+          </dl>
+          <aside class="resume-card">
+            <div class="pdf-badge" aria-hidden="true">PDF</div>
+            <h3>Akshay Kasarla – Resume</h3>
+            <p>Two pages, tailored to SAP GTS roles.</p>
+            <a class="button primary" href="assets/Akshay_Kasarla_Resume.pdf" data-resume="download" download>Download Resume</a>
+            <a class="button outline" href="assets/Akshay_Kasarla_Resume.pdf" data-resume="view" target="_blank" rel="noopener">View in browser</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="opportunities">
+      <div class="container narrow">
+        <p class="eyebrow">08 / CAREER OBJECTIVE</p>
+        <h2 class="section-title">Ready to learn and contribute</h2>
+        <p class="lead">Seeking a Working Student (Werkstudent) or internship opportunity in SAP GTS / Global Trade Services, with SAP BTP, in Germany.</p>
+        <p>I am interested in supporting functional analysis, process documentation, testing, issue investigation and learning from experienced SAP professionals.</p>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container narrow">
+        <p class="eyebrow">09 / CONTACT</p>
+        <h2 class="section-title">Let’s connect</h2>
+        <p>For SAP GTS opportunities, professional networking or discussion about global trade processes, feel free to contact me.</p>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:akshaykasarla002@gmail.com">Email me</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/kasarla-akshay-500b29286/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+          <a class="button secondary" href="assets/Akshay_Kasarla_Resume.pdf" data-resume="download" download>Download Resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Akshay Kasarla</span>
+      <span>SAP GTS · SAP BTP</span>
+    </div>
+  </footer>
+
+  <dialog class="topic-dialog" id="topicDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head">
+      <div>
+        <span class="tag" id="dialogTag"></span>
+        <h3 id="dialogTitle"></h3>
+      </div>
+      <button class="dialog-close" type="button" id="dialogClose" aria-label="Close details">✕</button>
+    </div>
+    <div class="dialog-body" id="dialogBody"></div>
+    <div class="dialog-foot">
+      <button type="button" id="dialogPrev"></button>
+      <button type="button" id="dialogNext"></button>
+    </div>
+  </dialog>
+
+  <!-- Topic details (shown inside the dialog) -->
+  <template id="tpl-compliance">
+    <p>Compliance Management makes sure a company does not do business with sanctioned people or organizations, or in restricted countries. The checks run automatically on sales, purchasing and delivery documents, so no one has to screen each order by hand.</p>
+    <h4>How it works in SAP GTS</h4>
+    <ul>
+      <li>Every business partner in a document (customer, ship-to party, vendor, forwarder) is screened against sanctioned party lists supplied by list providers.</li>
+      <li>The embargo check compares the countries, goods and services in a transaction with embargo rules, for example the destination country.</li>
+      <li>A boycott list check covers countries where such rules apply.</li>
+      <li>A hit blocks the document. A compliance officer reviews it, then releases or rejects it, and every decision is logged for audits.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>SPL screening</dt><dd>Comparing partner names and addresses with sanctioned party lists.</dd>
+      <dt>Embargo check</dt><dd>Checking a transaction against country-based trade restrictions.</dd>
+      <dt>Blocked document</dt><dd>A document that cannot continue until the issue is cleared.</dd>
+      <dt>False positive</dt><dd>A hit that turns out to be a different, harmless party.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> a new customer’s name closely matches a listed party. The order is blocked, the officer confirms it is a different company, and the order is released.</p>
+  </template>
+
+  <template id="tpl-legal">
+    <p>Legal Control covers goods that need government approval before export, such as dual-use items (products with civil and military uses), military goods and certain technology. It answers one question: does this transaction need a license, and do we have one?</p>
+    <h4>How it works in SAP GTS</h4>
+    <ul>
+      <li>Products are classified with control classes and control groups, based on legal regulations such as the EU dual-use list or the US export control list.</li>
+      <li>License determination checks product, destination, partners and regulation to decide whether a license is required.</li>
+      <li>The license check confirms a valid license exists, with enough remaining value or quantity and a valid date range. Otherwise the document is blocked.</li>
+      <li>Licenses are managed centrally, so usage and expiry can be tracked.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>Classification</dt><dd>Assigning a product to a control list entry.</dd>
+      <dt>Dual-use goods</dt><dd>Items with both civil and military applications.</dd>
+      <dt>License type</dt><dd>The kind of approval, for example an individual or a general license.</dd>
+      <dt>License determination</dt><dd>The step that finds out if a license is needed.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> a machine component is classified as dual-use. The order to a non-EU customer is blocked until a valid export license is assigned to it.</p>
+  </template>
+
+  <template id="tpl-customs">
+    <p>Customs Management prepares and files customs declarations for import, export and transit, and tracks each declaration until customs has cleared the goods. It replaces manual form filling with data taken straight from the ERP documents.</p>
+    <h4>How it works in SAP GTS</h4>
+    <ul>
+      <li>Delivery data from the ERP system becomes a customs document in GTS, with items, commodity codes, values, weights and Incoterms.</li>
+      <li>GTS creates the declaration and sends it electronically to the national customs system, for example ATLAS in Germany.</li>
+      <li>Replies from customs, such as release, accompanying document or exit confirmation, update the customs status of the document.</li>
+      <li>The customs document is linked to the ERP document flow, so the status can be followed and reported. GTS also supports transit and customs warehouse processes.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>Customs declaration</dt><dd>The formal report of goods to customs for import or export.</dd>
+      <dt>Commodity code</dt><dd>The tariff number (HS code) that decides duty and rules for a product.</dd>
+      <dt>MRN</dt><dd>Movement reference number that customs assigns to a declaration.</dd>
+      <dt>Customs status</dt><dd>Where the declaration stands, for example sent, released or exited.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> after a delivery is created, GTS sends the export declaration to customs. Customs replies with a release and an MRN, and the status in GTS changes to released.</p>
+  </template>
+
+  <template id="tpl-preference">
+    <p>Preference Management helps a company pay reduced or zero customs duty under Free Trade Agreements (FTA). To qualify, the company must prove that a product has preferential origin, meaning enough of it was made in the agreement region.</p>
+    <h4>How it works in SAP GTS</h4>
+    <ul>
+      <li>Suppliers provide vendor declarations, including long-term declarations, that state the origin status of the parts they deliver.</li>
+      <li>Preference determination checks a product against the rules of the agreement, such as origin criteria and the share of non-originating materials.</li>
+      <li>Preference calculation (IBPP) works through the bill of materials of a finished product to decide whether it qualifies.</li>
+      <li>The result supports proof of origin documents, such as origin statements, and the customs declaration.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>FTA</dt><dd>An agreement between countries that lowers or removes duties.</dd>
+      <dt>Preferential origin</dt><dd>Origin status that allows the reduced duty rate.</dd>
+      <dt>Vendor declaration</dt><dd>A supplier’s statement about the origin of delivered goods.</dd>
+      <dt>Proof of origin</dt><dd>The document the importer uses to claim the preference.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> a machine is built from parts from several countries. Using supplier declarations and its bill of materials, GTS shows whether enough parts originate in the agreement region to claim the preference.</p>
+  </template>
+
+  <template id="tpl-integration">
+    <p>SAP GTS usually runs as a separate system next to the ERP. System Integration is how business data reaches GTS and how the results, such as blocks and releases, go back to the ERP system.</p>
+    <h4>How it works in SAP GTS</h4>
+    <ul>
+      <li>Master data, such as business partners, materials, customers and vendors, is transferred from SAP ERP or S/4HANA to GTS, so checks use current data.</li>
+      <li>Transaction documents from SD, MM and FI, such as sales orders, deliveries, purchase orders and billing documents, are sent to GTS when a check is needed.</li>
+      <li>GTS returns the results so the ERP system can block or release steps such as delivery and goods issue.</li>
+      <li>FI/CO documents, such as billing and accounting postings linked to the trade transaction, stay consistent with the GTS result.</li>
+      <li>SAP TM can pass transport documents to GTS, so compliance and customs checks also cover shipments.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>Feeder system</dt><dd>The ERP system that sends business documents to GTS.</dd>
+      <dt>Interface</dt><dd>The technical connection between the systems, for example the SAP GTS plug-in.</dd>
+      <dt>Master data transfer</dt><dd>Copying partner and product data into GTS.</dd>
+      <dt>Document blocking</dt><dd>Stopping an ERP document until GTS clears it.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> a delivery in SD is sent to GTS. GTS blocks it because of a missing license, and the ERP system does not allow goods issue until the block is removed.</p>
+  </template>
+
+  <template id="tpl-technical">
+    <p>To help with GTS configuration, testing and issue analysis, it is important to know how an SAP system is built and how to trace why it behaved a certain way. This is an area I am still developing.</p>
+    <h4>What I am learning</h4>
+    <ul>
+      <li>SAP architecture: the client-server model, the ABAP application server and database, and the landscape of development, quality and production systems with transport requests.</li>
+      <li>ABAP fundamentals: reading code, data dictionary tables, and the places where standard processes can be enhanced.</li>
+      <li>Debugging: using breakpoints and stepping through code to see why a check blocked a document.</li>
+      <li>Testing: preparing test cases, running integration tests across ERP and GTS, logging defects, retesting, and supporting user acceptance testing.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>ABAP</dt><dd>SAP’s programming language for application logic.</dd>
+      <dt>Transport request</dt><dd>The package that moves a change between systems.</dd>
+      <dt>Debugger</dt><dd>A tool to follow program execution step by step.</dd>
+      <dt>UAT</dt><dd>User acceptance testing, where business users confirm the solution works.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> a test order is blocked unexpectedly. By checking the document data and stepping through the check in the debugger, the cause, a missing commodity code, can be found and documented.</p>
+  </template>
+  <template id="tpl-btp">
+    <p>SAP Business Technology Platform (SAP BTP) is SAP’s cloud platform for integration, data and analytics, and building applications. In a trade landscape it sits around SAP S/4HANA and SAP GTS and helps connect them with other systems without changing the core. This is an area I am learning.</p>
+    <h4>How it can be used around SAP GTS</h4>
+    <ul>
+      <li>Integration: SAP Integration Suite can connect ERP, GTS and external partners, such as customs or screening services, through standard interfaces.</li>
+      <li>Extensions: custom apps or reports are built side by side on BTP instead of modifying the SAP core, which keeps upgrades simple (the “clean core” idea).</li>
+      <li>Data and analytics: trade and compliance data can be reported in tools such as SAP Analytics Cloud.</li>
+      <li>Automation: low-code tools can add approval steps or simple apps for compliance teams.</li>
+    </ul>
+    <h4>Key terms</h4>
+    <dl class="terms">
+      <dt>SAP BTP</dt><dd>SAP’s cloud platform for integration, data, analytics and app building.</dd>
+      <dt>Integration Suite</dt><dd>The BTP service for connecting SAP and non-SAP systems.</dd>
+      <dt>Side-by-side extension</dt><dd>A custom app that runs on BTP and talks to the SAP system.</dd>
+      <dt>Clean core</dt><dd>Keeping the SAP system standard and putting changes outside it.</dd>
+    </dl>
+    <p class="example"><strong>Example:</strong> a compliance team needs a dashboard of blocked documents. Instead of changing the SAP system, a small app on BTP reads the data and shows it in one view.</p>
+  </template>
+  <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Topic details dialog */
+const dialog = document.getElementById("topicDialog");
+const dialogTitle = document.getElementById("dialogTitle");
+const dialogTag = document.getElementById("dialogTag");
+const dialogBody = document.getElementById("dialogBody");
+const prevBtn = document.getElementById("dialogPrev");
+const nextBtn = document.getElementById("dialogNext");
+const cards = Array.from(document.querySelectorAll(".topic-card"));
+let current = 0;
+
+function showTopic(index) {
+  current = (index + cards.length) % cards.length;
+  const card = cards[current];
+  const tpl = document.getElementById("tpl-" + card.dataset.topic);
+  dialogTitle.textContent = card.querySelector("h3").textContent;
+  dialogTag.textContent = card.querySelector(".tag").textContent;
+  dialogBody.replaceChildren(tpl.content.cloneNode(true));
+  dialogBody.scrollTop = 0;
+  const prev = cards[(current - 1 + cards.length) % cards.length].querySelector("h3").textContent;
+  const next = cards[(current + 1) % cards.length].querySelector("h3").textContent;
+  prevBtn.textContent = "← " + prev;
+  nextBtn.textContent = next + " →";
+}
+
+function openTopic(index) {
+  showTopic(index);
+  if (!dialog.open) dialog.showModal();
+}
+
+cards.forEach((card, i) => {
+  card.addEventListener("click", () => openTopic(i));
+});
+
+prevBtn.addEventListener("click", () => showTopic(current - 1));
+nextBtn.addEventListener("click", () => showTopic(current + 1));
+document.getElementById("dialogClose").addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (event) => {
+  if (event.target === dialog) dialog.close();
+});
+
+/* Case study steps */
+const steps = Array.from(document.querySelectorAll(".process-step"));
+const toggleSteps = document.getElementById("toggleSteps");
+
+toggleSteps.addEventListener("click", () => {
+  const open = toggleSteps.dataset.open !== "true";
+  steps.forEach((step) => { step.open = open; });
+  toggleSteps.dataset.open = String(open);
+  toggleSteps.textContent = open ? "Collapse all steps" : "Expand all steps";
+});
+
+document.querySelectorAll("[data-open]:not(#toggleSteps)").forEach((el) => {
+  el.addEventListener("click", () => {
+    const i = cards.findIndex((card) => card.dataset.topic === el.dataset.open);
+    if (i >= 0) openTopic(i);
+  });
+});
+
+/* Resume: works even when the assets folder is missing (PDF is embedded) */
+const RESUME_B64 = "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDcgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0Jhc2VGb250IC9UaW1lcy1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9UaW1lcy1Sb21hbiAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9BIDw8Ci9TIC9VUkkgL1R5cGUgL0FjdGlvbiAvVVJJIChtYWlsdG86YWtzaGF5a2FzYXJsYTAwMkBnbWFpbC5jb20pCj4+IC9Cb3JkZXIgWyAwIDAgMCBdIC9SZWN0IFsgMzQzLjA2NiA3NDEuMzc0NyA0NzIuMDA2IDc1My45NzQ3IF0gL1N1YnR5cGUgL0xpbmsgL1R5cGUgL0Fubm90Cj4+CmVuZG9iago2IDAgb2JqCjw8Ci9BIDw8Ci9TIC9VUkkgL1R5cGUgL0FjdGlvbiAvVVJJIChodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4va2FzYXJsYS1ha3NoYXktNTAwYjI5Mjg2LykKPj4gL0JvcmRlciBbIDAgMCAwIF0gL1JlY3QgWyAyMjguNTIxNSA3MjcuMTQ0NyA0MTAuNzkxIDczOS43NDQ3IF0gL1N1YnR5cGUgL0xpbmsgL1R5cGUgL0Fubm90Cj4+CmVuZG9iago3IDAgb2JqCjw8Ci9CYXNlRm9udCAvVGltZXMtSXRhbGljIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GNCAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0Fubm90cyBbIDUgMCBSIDYgMCBSIF0gL0NvbnRlbnRzIDEzIDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDEyIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAKICAvVHJhbnMgPDwKCj4+IC9UeXBlIC9QYWdlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9Db250ZW50cyAxNCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMiAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKMTAgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyAxMiAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9BdXRob3IgKEFrc2hheSBLYXNhcmxhKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYxMTA3MTg1MDI3KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYxMTA3MTg1MDI3KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChBa3NoYXkgS2FzYXJsYSAtIENWKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjEyIDAgb2JqCjw8Ci9Db3VudCAyIC9LaWRzIFsgOCAwIFIgOSAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjEzIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM1MzEKPj4Kc3RyZWFtCkdhdUhOZ04pJS4mcS8pLWkrWWo7UG8vQDIxR0EmQjkmXmpRRnM8Y1tbYFU2NyJcRzRcVV1xdCVkRk5kRVNkJWNDUFUyZ2hjRj9iRDhLbkVzcUsvPm4lRSleJnJgSyRTR2YvMWcpMTF1M0BbPjhOOTRrX2hiQFhnbDE0L11rLyNzYFU9YmJ0SU5sKG9fMWkxVk1uL2BYP3FRWDs9X0A1IkU7UzlgW0tKcC9CUmE7T1kzbTJgK2FHRSNBVC5TXlJpZ1gtQypXKE9AL2xWYjxjJGowL15VJGRdJ01TOlw1R3VgcDBKNyVfa2NGMWhKTzlXJFE0XUxVbFc3Im49MTFKPl1RcnMiYjs7PmVYPi09VlkpUi4zWWonK1lScS9RRicxKyYhTVomTj9BM0FaXzhaXlJPLWw0J1hmUk5SbSYkdE1eTkQhOjQpaGhfXEknWk5cVCNDY1doc2w8KUNTKCddZlxoYmZoUlduU1o4WC1kIWs3TFQwLT1NM2JgNEIwQUhnOjk+ViM8ckw6T2EscHRqdHJQWUZxOCxJIS1Kbm5iQG4xVGorSV9oW1RSOC88RD8kYjcxXSVtay9ZW19xaDxpQzsmXjRObUFlYUwrQTRVM0FUVClVV0k8VFZjSCdGMSdzdUM7ZnBbbXQlVlZPKkpKNiUqcHVuIUBuRWFiN0VybCM5NUJQPmZWP0oiLiVzYVE9SllJNEhPKzJgOFdRTFdTVWpaXkYnb2RrIlYjUFdIVUEmcCxxbj5GKUZLa2tUQWZvWmU/V2MyL1U3PCpgIi89WEspdTZjOzlSTlxSTDNHMC9yPkllKjV1PVZpKiZgckhgbT9uYEFZZiQnMjMmIWV0O11fZThdXG88NVRsa2xaTWZaNDUuUyxDQ1o8U3NkaDI2NmdTSkF0aWprTCk1cz1MKTJtN11KNyMnJVpicS0xOHVnWEFDRUxNUFlXZ08oRjpeO01iPkxdOj9kZFU5O3RQKzpTK2dARUtmYjpndVNfOlIpYHRXWUtLbkxwSk5FJS0pRE08XiwhZWEsYS4+RyVYZj4oLFFCcVZlcjJDYmE7aVlFQ1FWOEA9YUEvVUgncDcvT2xUWVQhLC1yPiU2Z1RgKjA0YTo+ZDEyaGhpaDBAXUBTYFxfMy4sbkUkO0c7ck0jbChZQkVXW0NhWlM3RDlETSxPTS9EVjFWVjg/ZGl1LDZVRVVbVExdbz9RMUdSU2kvaG0+RjxlWyxQQW5tbFFhZl9LJGphbyc8MzJSRnFUc111Nj8qW0FlcCQoV2k0bjdwQj1RZUEiNlFAbUtKcy1vV1YiME5cM1clK05BM2sxOVBMWSFPNFxzN1xAIm1bMGlkLHE7SFU3U009JDRUNGI8ZGBcYWIlSmVKUGNecVo9VjBbWVVlIVRRKUZhJC1VTU1cNVNtUlNeUHA0SylKXj5PJy1TLSxFclxaSShUIydnO1QtK04uIkVJRCtvI1lrJipSXEZnLj8/Ojo6IkcqSj9fW1QjMDtIcyJXIW1eYWQ6X1hkbDZeOE1iYi4qPzdMN2VaKXU2JFIxY04wSm5NVEVqW1FEXVRlXWJKWFFnZ0EsZSZybDVmIldDZk9EVFZLV3VnZGlxRikyLnM9OzRdWmsiYjc1MjghPSksKW5aYzdROU5aQkY2JU01RSQiNCs1Z2hwVWkqJzYkdTViJVZGal9AWTBEbk1lPDU3NS83JydERzBEKjVrPS9kbjsvc1lRUXRMLT5LWWFgXCpTYWpkQ1FxOyo8azRYYGFCbD9ycVhRTkQuOURJKExdc2YxRlI3W0xxMCsnMygnOFBDXiV0KC9VZShPO0JaQm1hOCYlRSRiKyYkSV4hYlRvcC5CJyZnJmc8YjdnOkhDLk10JThnQEg+NVsvMT9rPUZGWSFPUGJdPzVBZSFCbmFiKjtAIkY0MjFNR0BIM2pDZ1c9OiZCbV9xL3AvcXQiYHI0QDdmNjMsclhDZnIwYyFhSmdVUiY9PkRQcVxpcSspYWFmQUkuSFp0Jmw+K19cKjgkUVg8Iz0mL3NvL0NVbyEsQXN0ZEUtaTYpKUk2J3QjUTAmIVteOWhlVEZINmAsYSw8bTxeVlE6OGdkOjpHIyFldUJYJV1OZDQiJ2A+YydRUFxoUzdiXDlyWE1IaFZpMkpxbEVtJF9EYmI9WjZdKGVoO1BCSF9HTF9mUzFLWkImclUiQFI7cV0uaGEzPT5mVmpRbTFebVQtNllsSjUpUW1TJiwhUS1ASlhDPzNObCIjamRIKiNvMGlzLlE+KGZPSWBCJGhzM29xKCMmQjBPZT89PDtmYEYiZUIlOTg6Zl8lTjQkOF88XSFmYmJ0a0trcCJeay5VOCFKXiJabEg3aS0/WDUzIjxzbCRSLTo5J05iXDU7UF4oLkduL2BMW2tJJUtGPVcuQi1KTyY2X09iZSEnWjhuXSQmIlRZQ1NsO2pOST5qZDpXJEk8YTwsTC0rMl1YPyVJYTZnUllKKDJbJTRBR1c2WTdnaSEydChnZS8iWW1Uai9QNFA9Y1UhLW5OLC5sU1VAcTRBQkpGaE9xJmAoVGxmUEJmWW89K1hdKHJCW3NeQyZHaiNtNj5FLz9eZSRdajIrIiZJM1pjYioiSlI6VXNyLUM1R3BMMkxqIW5ULHM1SD9uLEJOKERjcVArWDIpSDk6U0wuJEJeaixmKV5NMl1mNVhxLSNUM1w8cURrUjohXlVRVSduJV5AaW5NS2puLTNna2kjREJNcW0icERjQkMmckZBKWYhZEhBXDpiZChRaWBzVnMjRUAkISRVMiYqODlQTDk9ViJzMmdVMzJXckcwVFoxRD8zVXQsPFdwKm5CUWlZPytsQE4vVUJGWmEmbERPSl1kO1NSdF1KQSIqRzAqImcsMyhIIzxPWidnTXBRITJnNiovXmZHOyVaMnBebXI/Uz8kPE9cXEs+SzI5NVUnKE9DUmtcUm4iW2RFXWIxUkJLIzMlLCgiJ0oxTShLdWs3RT03SSE0PFluWy8nbiddYlNOO0hDUmo6X01JMTZYJDh0ZkIiMi1cUTNAW2FxSy9aKzYlP1VdbTU/Vz5DNC8/OD5AWGVrO2xZT1NMSWFlL2ZqWlthSi5zLmQiaGE2Y0Qpa1U1Wk9FaHJrPytJJjBANjVbSlIuX1dyQV1QTVd1SU5LJGVmTzJEViJcTm9hVSU5SGRMcUoyRUhKQi4wWF5mLGBIL0MoJydzR2FjKjRQI0I8PzNZbl8sTXQ+YT49VD8xWnJlRG4mdEctITUhXFRQPzhldGk8SjdwTGY3WCFBXnFNQylzVD5oXy5aSTJZc1EwXTBccl9tUishWVpPWTYqUlVeXmxSNEFRIlUobT05P2M2SSY2a1hONFZLS20qIl44UC5cVD9sW1U9LmFQcSNIT3BSVjQwPilcPEoxP1hjJnNtWGQvc0kpLSU2Qk0oWG1zWWZhZkhdSyJPMjwkP2ciXl8zKzZwSnMsbWddc1VpMlhLP0owUFcxXTxaJVRONCs4OTNdZmwiL2okUSZPUk1QPCo6KmIpR1ZFUi86TVZSaVciZSN0K0RSJzxycUBKSConNlYrXidnP0VjTDxaK2FNLGI/SCwlc0Y6MkBVLFM5WChsQmM5bjlwRmVsOWJAbWUiL2pXQlZBOVUvZ2k5VDtkdEEsQlp1SDtISVBKUnJWam9EKiElQEYyKDoiQFxWTDonLTVsazJCMWwuNVxbOGptWVFXOEtSOStVZkcjZWU5Ly1YZGE7TGw1aiJvRzw2JS4/Il5RNz1ISF8oOy5QP3BaM2tRKGY/TjNQLz1xUTEvIVQ3LGhTTmVYLzsldCVPLVctJDpEJTw2KWUnYDteJlpFYSpVTDY+YkxqNVRpLlhmYGNJOC1Vazw/XSUhQk04ImAkNGRXJXB1PTFhKFI3SSk2QUhzLkViVj9WQFhrPzEhc29ZSSxQN1NeRV9ZRD0qRkkjQ0RhKmhzYT5GJWZzNlFoS0xAb0FzVmJxZVNbX0JJNVs/Xkg8Yj9NOldwbFdmWi9UYSZTcC8qUChIJFJpTCpeJmBuYSlkb2VZY1QhJF5qMFVEQVBvZyhwISlgb141RypZW1dOV1UwUzk7a0ZfS1xza0A0NU5dcG51b202OT03KzZjR0NZaG8sbjxcaUR0UyQuMjs+RS1TW0hGWiteRHBJT1BUYUE7REsnRG4tYSNDbCVjdW5gMCptbys6QUdeY2hxS25HOGg2LTcyLSlHNFtAQFBFPjAxVDgnQThgRV1cU01vZzssSFRSWmwuQlRYa1RfUW9qSydea0ljSS1DRzBkMVNHPkojOkhzcDM7Q1h0ZkF1RkZzaVMsclxNRSNoLFhROiZZWV1OQ3FnPTtvTSZpPScpK1A2bDUrLSNtPFVyOW1aNScoJD0tJFB1VGEvNDQxRy9JNi02W10tWmwvbihMUXU4I05DV0BOdCxcRjkpa3QwLzFYMzVcYFYpZUUuPjxvUiJZOE5sYFcyLylFalduXDVrYkBJIVYiT1FoTVhFU2g6WFJLMmFoXzFVZER1OSxpMzIzUTAvUUFTMnRzc2lZKSZGaE1PMU9CTmtST05dbHV0MjohPm5KTG1YQS5URT4lcSpxMzVQXFtVMTltWkJTQVptdDZcSVg3MDlwIShPYVxWYnA5XDRCXWJeUFhtUz4xNWpNZ3FecztgTE9VVGhhTnVQb3BMTiJVQTsrKVZjMFFxQU5uQ0FwP0ksWEVBU2p+PmVuZHN0cmVhbQplbmRvYmoKMTQgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjQ3MAo+PgpzdHJlYW0KR2IiLyg+QmYnZCZxODAxVzJEZkM0bEgjOyluYytQS1ZbaVUsUnBANFI1b09pQ11UdEFNOSVHJ0hoUEt1OE4rTFlQRSkuI2lGdSVeJm49TDVXaXA8NEtFRi4zMzlHLmwiUiY7RHJtQ2hmS2tMWmNiQSc9IkpqRk1QR2lrNUhJRTFwVlFLTFFHQHA8Zl5lXSlfa0NuImluNT01YiY/RHFONCYxcGJUXSthR3AyXjo7c1NfUkhbVlVPTUtcO0xdQ10sYVMiSzVsRDElXGMwMnFQUkJpKTFOLXFEMjIvcj0pLnVEXylcLFtyS0Y5PERCPitqJD0xZ2NKZTEvQjBSWStIam1UI0BbY09rKykuP3BXYyg8YXA1ZXBhUUVrUUNabVRPSUdEbkUtUlNzPjVAcSVsRjJcN1JrRlRaXXA8PEBsR1JHLSwvSlAjakMtSSpaaCIyIUkpZEhYQTpJZ3NCZWtETGg+USJPO2NiQDpaOkJxMF9cNC9KTjImNlo7OkBkRGpVLl8ycC9zM1NfMERrIy5AKUpJQUprWEkucGFnTz9lYT9YIjxCU15RcSUzPSIvWj5LJmUvYV08b15wSFVqNV4jLjAhPTYkVTpmZ2pLTCQqSWJBU1JSMi0wK1lwP0xYJiowJVwpUF88WiNNXmNMNzlIcVxfayFNPzw2c1U9WHE0ND1oYSFOMCdvUmZsIkZoaiw/XnNbZj1iWSgyVV11WSFuZDQuNEBjNDdaPllhJEFmOFU0Q2BhS2UnQjZdNEZ1N2g9cFd1OCRwQEBQIjlZMGlrbl9ocUFOM28/UFZhLWcnN2U6NWl0ck88U008bjZpR1Rbc1oiK1wmTi47UFYnJDpyWUQsSiNMVSldVT45b1IsRUIrMz5bKHVKSjdmOHEtSS9fPC46LyNuSmVGK3JeYjdZXFhuVTZpMmMpM15EQ1FtKkcjYUhYbllQdFFLbWthUkU+Q1dbN0RRJm1KMlRQKFJMXWNbTWw+U3JaYG1YYFw/PmEsZVNEUm5ZVj4rZXFHPVo1MmhkTTRoLFxLZCZrOEs/b1YuLCcyUi82PTk0RCc9JVdeT2hsOE9HRkFCO2tnQDYrIjQ0Tj0rWklfJVNrdUpNUDs/LyZpdSVbSEtDJ0glc285VDlKJUJRLDBRRl1TRj1sTjtyaUteNyUtcVRcMDdXOytdK3NfTGAocSQ1IXNQPjtNbnM2P2cyTmo7Xi1Aa01cUztGMHJMRypROUZ1IigrKmBCZFBXVj4wT1wrQ1RUZSovY3VMX2E0cEMtYjdFOElVXkUpIzNtKmc/WTZdNV5WZjhPU1M/bHNIayRZZyg+SyNTPnIuWUFJdSRILFd1LywzQjVfRDwhRGxvdGFmS3A8PyxicU1yXTB0LmNZODIqT1pTYE08XyVgS0RcUm1KbGhtJEVFX1hEZmJKKFlWZ0BKay1PVk1VWzQ0bGcwYG44NGlyOl5ATzk0Mz1SRipNT0Uxa3FpSEgzQmUhLlY/LFsvKm5sTHRkYHNzXTUnQz4nO2tzdCddakNkTGtkdU9MbEdKNkwxciFtPnUuSGo5JWQ7YiQyPiZGblltRWpxSSJoaTdGRjNMZFpXQ28nTDVmLVY7Oj9XO2hUTXI8YVxIWWFOJ1dIZz5QcFdELzszSiwqbVUsVCkwX2lzJEtrL2MsUi5DdUsiQGdSX1QlUlY5OmBRWyRhaEVoV1M6WDcxJ2NrdTREIVpDWGEzcj91ZjU4LyM8RktPVmEycV4tNjIsUGlsI3Q/MCpDaVk1O0sxMF5dVTN0P2lXbyZ1VU40VmBFJkw+OkdLI0hiTyoqPi9hSi9rYTc7QiY+cidmU0c6bVFpRSo2aWg+UXEvTShqKSg9NzNaZGNRWDdaWk5ZOS0qKzYzI3RpZlorWmhvVSJOTTFwKk1gXTlySkpWcD9gKVtWTCJcXzBEdTsqYV0zbWI2YFIiTGxkJjc8O1hVTysnOjsxW21gOGlrQDY6R2JHX1YhaClYW1o9NCd1OzY7MUlMTTxbJUtwVDlNNEU+TGlFMXVORUxeNDAob08wMTQkTWtGVldkJUs4WltAaHN1bnRiZTxNS0RAUy8nNSlGJWtpYm9gai4vQSxAJ2dsS3MwaDRjVzMtMz4sUyNbPENPKjtfdDM2QSVyNkYtRkRbNV42RFRCYm5UaVg6VD8iKyZWUGkpPVlTPik2S3RERGhYPkxlZG1iVXI2RGU6ZkxFI18+ck1nOVYhMkg4TldJOFlBMGsnUW4ySEdjcChCZ2hBZjhvZTBxUkVhYSdHQk04JkdiIkopa14tbTlYVHM7RGNmPHU9cj4rPGVGbTlPbFlJQnIpUGNeZVA8LENrQ2lycks8M0NSMVInWVA5S1JZMnAxI2I7bHJxMVdXQDl0YEsxNkdhRiEiQk1vRitSdTdQZUJzJiEnQDNJKiEkcU1uXVVtKFFSVkg+OzhJaDguQCRNQFk0X0wxMl5gbnU+akJgUE5VTTBIITcjTDBXa0hRSUpaWVVkcUVHNEhjMlxoO2c+XGMkQVcwVDZIYyVlIydxb2w0VDRTPjBrNy9ETy0xcV5iZScrSm0iO3RwU2NQTzxCUCorLjVubHJvR0BaVDhVNEhFMiosKXVRalRYNk1fMT5dPi5bVmVDaVBqb00qcVJkPV1LPFpaPSMoUWZFbEFXISUvWDEoQ2Uzaic0bS1TVzAsaztdZVRnbS5UNDwsQXVmW2A3bCpWbVJFSyJRPnErck05ZCFvR2lZJTJcJ0ZhJklwKTs6M1poIi5YSSwtaiwxdSppQGxJJ1NzKTE6NVg7WFdKWmBNSj4wajBWMlVeNzlOVT1BUlJuKTwpZVpbZjA1bjFRcEgmaCFBNUhTXFooOy5PQXAtQSo/JV5gIzRUO081RSdTK0hWPmZZQE1IL0kjQXFzTjklIStYTFJzLCk6Ky0xIzVtY1k3cERvIz5ZKEM9WURzbTlMZmA/N3ErS1JhOlM3JkxWbkBnSVNsSztrYEY0bF1VXE5dPklMVDJdTjolaGs8LUdKMWlqRj9fSTozb15RTktyNTVuMjNhOGc9cFMnbjsvMnFOc25BPE4hP2hBSm1pWj1jKS03bV1bJyVoNHInOENNIURCJV9hWUdwL1AxS0RLSUxjWlZaTGc0UGJIYzFaZSM+SjtsTVFBQD0kJiovMSlJKDlFbmpIaUg2SS1XNykoJCtmK29NOi9NTmNKOC5VUUcxKWNDK1ldWzJ1VnFPPDtOVEZtQDMoSjZJc2MjVTFhLCVAdSZeaGQnL2osMnFSPTZCJUFFNSJTKzA4VG4ncj8jWzQ0YS1+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDE1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTIyIDAwMDAwIG4gCjAwMDAwMDAyMjkgMDAwMDAgbiAKMDAwMDAwMDMzNyAwMDAwMCBuIAowMDAwMDAwNDQ2IDAwMDAwIG4gCjAwMDAwMDA2MjkgMDAwMDAgbiAKMDAwMDAwMDgzMyAwMDAwMCBuIAowMDAwMDAwOTQzIDAwMDAwIG4gCjAwMDAwMDExNzIgMDAwMDAgbiAKMDAwMDAwMTM3NyAwMDAwMCBuIAowMDAwMDAxNDQ3IDAwMDAwIG4gCjAwMDAwMDE3MzUgMDAwMDAgbiAKMDAwMDAwMTgwMSAwMDAwMCBuIAowMDAwMDA1NDI0IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDY1MTFmZTY0MWI0NTc3OGM4ZTk4NWQ2Y2E5MTZiOTJiPjw2NTExZmU2NDFiNDU3NzhjOGU5ODVkNmNhOTE2YjkyYj5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gMTEgMCBSCi9Sb290IDEwIDAgUgovU2l6ZSAxNQo+PgpzdGFydHhyZWYKNzk4NgolJUVPRgo=";
+
+function resumeUrl() {
+  const bytes = Uint8Array.from(atob(RESUME_B64), (ch) => ch.charCodeAt(0));
+  return URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+}
+
+document.querySelectorAll("[data-resume]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const url = resumeUrl();
+    if (link.dataset.resume === "view") {
+      const tab = window.open(url, "_blank");
+      if (!tab) window.location.href = url;
+    } else {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Akshay_Kasarla_Resume.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  });
+});
+
+  </script>
+</body>
+</html>
